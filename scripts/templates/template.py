@@ -13,13 +13,13 @@ class Solution:
   
   def part2(self):
     pass
-  
+
 if __name__ == '__main__':
   parser = argparse.ArgumentParser('Solution file')
   parser.add_argument('-part', required=True, type=int, help='Part (1/2)')
-  parser.add_argument('-test', required=True, type=str, help='Test mode (True/False)')
+  parser.add_argument('-test', default='f', type=str, help='Test mode (t/f)')
   args = parser.parse_args()
-  test = True if args.test in ['True','true'] else False
+  test = True if args.test.lower() in ['true', '1', 't'] else False
   solution = Solution(test=test)
   result = solution.part1() if args.part == 1 else solution.part2()
-  print(f'Result for Part=={args.part} & Test=={test} : {result}')
+  print(f'Result for Part {args.part} ({'test' if test else 'real'}):\n{result}')

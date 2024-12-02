@@ -35,7 +35,7 @@ class Solution:
 if __name__ == '__main__':
   parser = argparse.ArgumentParser('Solution file')
   parser.add_argument('-part', required=True, type=int, help='Part (1/2)')
-  parser.add_argument('-test', default='f', type=str, help='Test mode (t/af)')
+  parser.add_argument('-test', default='f', type=str, help='Test mode (t/f)')
   args = parser.parse_args()
   test = True if args.test.lower() in ['true', '1', 't'] else False
   solution = Solution(test=test)
