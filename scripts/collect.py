@@ -29,6 +29,14 @@ except:
 dest = os.path.join(args.y,f'day_{args.d}')
 os.makedirs(dest, exist_ok=True)
 
+########### CLONE SOLUTION TEMPLATE ###########
+template_solution = os.path.join('scripts', 'templates', 'template.py')
+solution_destination = os.path.join(dest,'solution.py')
+if not os.path.exists(solution_destination):
+  shutil.copyfile(template_solution, solution_destination)
+else:
+  print('Skipped creating solution file as it already exists')
+
 ########### PARSE DAY PROBLEM ###########
 url = 'https://adventofcode.com'
 line_size = 120
@@ -58,11 +66,3 @@ with open(real_input_path,"w") as file:
     file.write(output)
     print(f"Content for real input saved at : {real_input_path}")
     file.close()
-
-########### CLONE SOLUTION TEMPLATE ###########
-template_solution = os.path.join('scripts', 'templates', 'template.py')
-solution_destination = os.path.join(dest,'solution.py')
-if not os.path.exists(solution_destination):
-  shutil.copyfile(template_solution, solution_destination)
-else:
-  print('Skipped creating solution file as it already exists')
