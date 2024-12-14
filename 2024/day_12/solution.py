@@ -1,6 +1,4 @@
 import argparse
-from itertools import permutations
-
 
 class Solution:
     filename_real_input = 'real.in'
