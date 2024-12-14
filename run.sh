@@ -12,7 +12,7 @@ YEAR=$2
 PART=$3
 TEST=$4
 
-cd ${YEAR}/day_${DAY}
+cd year_${YEAR}/day_${DAY}
 
 if [ -z "$TEST" ]; then
   python solution.py -part $PART

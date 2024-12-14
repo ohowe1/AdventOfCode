@@ -26,7 +26,7 @@ except:
     raise KeyError('Missing entry for day (-d) or year (-y)')
 
 ########### CREATE DIRECTORY ###########
-dest = os.path.join(args.y,f'day_{args.d}')
+dest = os.path.join(f'year_{args.y}',f'day_{args.d}')
 os.makedirs(dest, exist_ok=True)
 
 ########### CLONE SOLUTION TEMPLATE ###########

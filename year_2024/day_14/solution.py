@@ -1,19 +1,10 @@
 import argparse
-import re
 
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-def add(a, b):
-    return a[0] + b[0], a[1] + b[1]
-
-def subtract(a, b):
-    return a[0] - b[0], a[1] - b[1]
-
-def mult(a, scal):
-    return a[0] * scal, a[1] * scal
-
-def negate(a):
-    return -a[0], -a[1]
-
+from utils.aoc_utils import *
 
 class Solution:
     filename_real_input = 'real.in'
@@ -25,9 +16,9 @@ class Solution:
         self.robots = []
 
         for line in self.lines:
-            nums = re.findall(r'-?\d+', line)
+            nums = get_ints(line)
 
-            self.robots.append(((int(nums[0]), int(nums[1])), (int(nums[2]), int(nums[3]))))
+            self.robots.append(((nums[0], nums[1]), (nums[2], nums[3])))
 
     def part1(self):
         w = 11

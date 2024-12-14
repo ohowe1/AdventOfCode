@@ -1,5 +1,11 @@
 import argparse
 
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+
+from utils.aoc_utils import *
+
 class Solution:
     filename_real_input = 'real.in'
     filename_test_input = 'test.in'
