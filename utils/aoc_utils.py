@@ -12,6 +12,9 @@ def mult(a, scal):
 def negate(a):
     return -a[0], -a[1]
 
+def mpin(mp, tup):
+    return 0 <= tup[0] < len(mp) and 0 <= tup[1] < len(mp[1])
+
 def mpget(mp, tup):
     return mp[tup[0]][tup[1]]
 
