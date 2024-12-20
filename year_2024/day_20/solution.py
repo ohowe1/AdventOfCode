@@ -70,13 +70,14 @@ class Solution:
 
         cnt = 0
         for p in seen:
-            for p2 in seen:
-                if p == p2:
-                    continue
-                if abs(p[0] - p2[0]) + abs(p[1] - p2[1]) <= 20:
+            for i in range(-20, 21):
+                for j in range(-(20 - abs(i)), 21 - abs(i)):
+                    if i == 0 and j == 0: continue
+                    p2 = (p[0] + i, p[1] + j)
+                    if not mpin(self.mp, p2) or not mpget(self.mp, p2):
+                        continue
                     if mpget(start_dist, p) + mpget(end_dist, p2) + abs(p[0] - p2[0]) + abs(p[1] - p2[1]) + 100 <= to_beat:
                         cnt += 1
-
         return cnt
 
 if __name__ == '__main__':
