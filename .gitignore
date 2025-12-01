@@ -1,5 +1,5 @@
 *.in
-.session_cache.lock
+.aoc_session
 # Created by https://www.toptal.com/developers/gitignore/api/c++,macos,python,jetbrains+all,visualstudiocode,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=c++,macos,python,jetbrains+all,visualstudiocode,vim
 
