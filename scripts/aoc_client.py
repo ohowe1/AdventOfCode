@@ -1,5 +1,6 @@
 # modified from https://github.com/henriupton99/AdventOfCode/blob/main/utils/aoc_client.py
-import os 
+import os
+from time import time 
 import requests
 import importlib.util
 import pyperclip
@@ -142,9 +143,12 @@ class AocClient:
             spec.loader.exec_module(module)
 
             Solution = module.Solution
+            start_time = time()
             instance = Solution(test=test)
 
             result = instance.part1() if part == 1 else instance.part2()
+            end_time = time()
+            console.print(f"[blue]Execution time : {(end_time - start_time) * 1000:.4f} ms[/blue]")
         
         console.print(f"[bold yellow] Year :{year}\n Day :{day} \n Part :{part}[/bold yellow]")
         console.print(f"[bold yellow] Output : {result} [/bold yellow]")

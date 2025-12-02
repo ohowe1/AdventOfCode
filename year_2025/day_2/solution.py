@@ -8,6 +8,18 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from utils.aoc_utils import *
 
+def count_digits_log(n):
+    if n == 0:
+        return 1
+    return math.floor(math.log10(abs(n))) + 1
+
+def multiple_times(n, times):
+  result = n
+  digits = 10 ** count_digits_log(n)
+  for i in range(times):
+    result *= digits + n
+  return result
+
 class Solution:
   filename_real_input = 'real_input.in'
   filename_test_input = 'test_input.in'
@@ -32,7 +44,7 @@ class Solution:
       upper_bound = math.ceil(range_[1] / (10 ** math.ceil(math.floor(math.log10(range_[1])) / 2)))
 
       for i in range(lower_bound, upper_bound + 1, 1):
-        val = int(str(i) * 2)
+        val = multiple_times(i, 2)
         if range_[0] <= val <= range_[1]:
           total += val
     return total
@@ -53,9 +65,8 @@ class Solution:
       if i in vals:
         continue
 
-      as_str = str(i)
       for times in range(2, max_upper_digits):
-        new_str = int(as_str * times)
+        new_str = multiple_times(i, times) 
         if new_str > max_upper:
           break
         vals.add(new_str)
